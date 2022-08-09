@@ -18,7 +18,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void addUser(User user) {
-        entityManager.merge(user);
+        entityManager.persist(user);
         System.out.println(".......................User save.....................");
 
     }
@@ -47,7 +47,8 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void updateUser(User user) {
-        addUser(user);
+        entityManager.merge(user);
+//        addUser(user);
         System.out.println(".......................User update.....................");
     }
 
